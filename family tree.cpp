@@ -4,7 +4,9 @@ int Showall();
 int Add();
 int Sub();
 int Search();
-//경원이 배열이나 대충 써서 만들고 printall이나 0번 탈출은 만들어나서 괜찮 
+//경원이 코드상에서 일단 기본적인 트리 구조를 만들어줘 할머니 할아버지 이렇게 해서 
+//그리고 추가랑 삭제만 만들자 printall은 내가 만들께 0번 탈출은 만들어나서 괜찮고
+//내가 계속 얘기하면서 만들자  
 int main() {
 	printf("안녕하십니까 family tree\n");
 	printf("\n");
