@@ -4,7 +4,7 @@ int Showall();
 int Add();
 int Sub();
 int Search();
-
+//경원이 배열이나 대충 써서 만들고 printall이나 0번 탈출은 만들어나서 괜찮 
 int main() {
 	printf("안녕하십니까 family tree\n");
 	printf("\n");
