@@ -8,6 +8,15 @@ int Search();
 //그리고 추가랑 삭제만 만들자 printall은 내가 만들께 0번 탈출은 만들어나서 괜찮고
 //내가 계속 얘기하면서 만들자  
 int main() {
+	char *tree= { 0,'A', 'B', 'C', 'D', 'E', 'F', 'G', 0, 0,'H', 'I', 0, 'J', 'K', 'L'};
+	int size=16;
+	printf("\n<<전위 탐색>>\n");
+	preorder( tree, 1, size );
+	printf("\n<<중위 탐색>>\n");
+	inorder( tree, 1, size );
+	printf("\n<<후위 탐색>>\n");
+  	postorder( tree, 1, size );
+  
 	printf("안녕하십니까 family tree\n");
 	printf("\n");
 	while(a != 0) {
@@ -28,4 +37,26 @@ int main() {
 				Search();
 		} 
 	}
+}
+
+void preorder( char *t, int n, int size ){ 
+	if(n>size || t[n] == 0) return;
+	
+	printf("%c ",t[n]);
+	preorder(t, 2*n, size);
+	preorder(t, 2*n+1, size);
+}
+void inorder( char *t, int n, int size ){
+	if(n>size || t[n] == 0) return;
+	
+	inorder(t, 2*n, size);
+	printf("%c ",t[n]);
+	inorder(t, 2*n+1, size);
+}
+void postorder( char *t, int n, int size ){
+	if(n>size || t[n] == 0) return;
+	
+	postorder(t, 2*n, size);
+	postorder(t, 2*n+1, size);
+	printf("%c ",t[n]);
 }
