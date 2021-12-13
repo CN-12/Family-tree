@@ -3,12 +3,12 @@
 #include <memory.h>
 
 typedef struct treeNode{
-	char data;
+	char *data;
 	struct treeNode *left;
 	struct treeNode *right;
 } treeNode;
 
-treeNode* makeRootNode(char data, treeNode* leftNode, treeNode* rightNode)
+treeNode* makeRootNode(char *data, treeNode* leftNode, treeNode* rightNode)
 {
 	treeNode* root = (treeNode*)malloc(sizeof(treeNode));
 	root->data = data;
@@ -22,7 +22,7 @@ postorder(treeNode* root)
 		if(root) {
 		postorder(root->left);
 		postorder(root->right);
-		printf("%c", root->data);
+		printf("%s", root->data);
 	}
 }
 add() {
@@ -36,13 +36,13 @@ add() {
 }
 int main()
 {
-	treeNode* n7 = makeRootNode('할아버지', NULL, NULL);
-	treeNode* n6 = makeRootNode('할머니', NULL, NULL);
-	treeNode* n5 = makeRootNode('외할아버지', NULL, NULL);
-	treeNode* n4 = makeRootNode('할머니', NULL, NULL);
-	treeNode* n3 = makeRootNode('아빠', n6, n7);
-	treeNode* n2 = makeRootNode('엄마', n4, n5);
-	treeNode* n1 = makeRootNode('나다', n2, n3);
+	treeNode* n7 = makeRootNode("할아버지", NULL, NULL);
+	treeNode* n6 = makeRootNode("할머니", NULL, NULL);
+	treeNode* n5 = makeRootNode("외할아버지", NULL, NULL);
+	treeNode* n4 = makeRootNode("할머니", NULL, NULL);
+	treeNode* n3 = makeRootNode("아빠", n6, n7);
+	treeNode* n2 = makeRootNode("엄마", n4, n5);
+	treeNode* n1 = makeRootNode("나다", n2, n3);
 	int a = 1;
 	while(a != 0) {
 		printf("1번은 가계도\n");
