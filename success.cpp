@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <memory.h>
+#include <windows.h>
 
 typedef struct treeNode{
    char *data;
@@ -48,8 +49,30 @@ treeNode* make(treeNode *n1)
 
 int main()
 {
-  treeNode* n1 = make(n1);
-
+	treeNode* n1 = make(n1);
+	int a;
+	int test = 0;
+	do {
+		printf("1번은 가계도\n");
+		printf("2번은 추가\n");
+		printf("3번은 삭제\n");
+		printf("4번은 탐색\n");
+		scanf("%d", &a);
+		switch(a) {
+			case 1:
+				if(test == 1) {
+					system("cls");
+					printf("이미 만들었습니다.");
+					continue;
+				}
+				system("cls");
+				test = 1;
+				printf("생성되었습니다"); 
+			case 2:
+				system("cls");
+				printf("탐색하겠습니다");
+		}
+	} while(a != 0);
    printf("\n postorder : ");
    postorder(n1);
 }
