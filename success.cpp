@@ -11,8 +11,6 @@ typedef struct treeNode{
 
 void postorder(treeNode* root)
 {
-  if(root -> left == NULL)
-    printf("끝");
    if (root){
     postorder(root -> left);
     postorder(root -> right);
@@ -23,13 +21,13 @@ void postorder(treeNode* root)
 
 treeNode* make(treeNode *n1)
 {
-  treeNode* n7 = (treeNode*) malloc (sizeof(treeNode)); 
-   treeNode* n6 = (treeNode*) malloc (sizeof(treeNode));
-   treeNode* n5 = (treeNode*) malloc (sizeof(treeNode));
-   treeNode* n4 = (treeNode*) malloc (sizeof(treeNode));
-   treeNode* n3 = (treeNode*) malloc (sizeof(treeNode));
-   treeNode* n2 = (treeNode*) malloc (sizeof(treeNode));
-   n1 = (treeNode*) malloc (sizeof(treeNode));
+  treeNode* n7 = (treeNode*)malloc(sizeof(treeNode)); 
+  treeNode* n6 = (treeNode*)malloc(sizeof(treeNode));
+  treeNode* n5 = (treeNode*)malloc(sizeof(treeNode));
+  treeNode* n4 = (treeNode*)malloc(sizeof(treeNode));
+  treeNode* n3 = (treeNode*)malloc(sizeof(treeNode));
+  treeNode* n2 = (treeNode*)malloc(sizeof(treeNode));
+  n1 = (treeNode*)malloc(sizeof(treeNode));
   n7 -> data = "외할아버지";
   n6 -> data = "외할머니";
   n5 -> data = "할아버지";
@@ -53,6 +51,7 @@ int main()
 	int a;
 	int test = 0;
 	do {
+		system("cls");
 		printf("1번은 가계도\n");
 		printf("2번은 추가\n");
 		printf("3번은 삭제\n");
@@ -62,17 +61,27 @@ int main()
 			case 1:
 				if(test == 1) {
 					system("cls");
-					printf("이미 만들었습니다.");
+					printf("이미 만들었습니다");
+					Sleep(3000);
 					continue;
 				}
 				system("cls");
 				test = 1;
-				printf("생성되었습니다"); 
+				printf("생성되었습니다");
+				Sleep(3000);
+				continue;
 			case 2:
 				system("cls");
 				printf("탐색하겠습니다");
+				Sleep(3000);
+				continue;
+			case 4:
+				system("cls");
+				printf("\npostorder : ");
+				postorder(n1);
+				Sleep(3000);
+				continue;
 		}
 	} while(a != 0);
-   printf("\n postorder : ");
-   postorder(n1);
+	getchar();
 }
