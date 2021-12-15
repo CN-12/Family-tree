@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <memory.h>
 #include <windows.h>
+#include <string.h>
 
 typedef struct treeNode{
    char *data;
@@ -17,6 +18,16 @@ void postorder(treeNode* root)
     printf("%s ", root -> data);
     return ;
   }
+}
+
+treeNode* search(treeNode* root, char* a) {
+	if(root->data == NULL) {
+	}
+	if(strcmp(root->data, a) == 0) {
+		printf("\n찾았습니다");
+	}
+	search(root -> left, a);
+	search(root -> right, a);
 }
 
 treeNode* make(treeNode *n1)
@@ -51,37 +62,46 @@ int main()
 	int a;
 	int test = 0;
 	do {
+		char* s[] = {};
 		system("cls");
 		printf("1번은 가계도\n");
 		printf("2번은 추가\n");
 		printf("3번은 삭제\n");
 		printf("4번은 탐색\n");
-		scanf("%d", &a);
+		printf("5번은 출력\n");
+		scanf("%d", &a); 
 		switch(a) {
 			case 1:
 				if(test == 1) {
 					system("cls");
 					printf("이미 만들었습니다");
 					Sleep(3000);
-					continue;
+					break;
 				}
 				system("cls");
 				test = 1;
 				printf("생성되었습니다");
 				Sleep(3000);
-				continue;
+				break;
 			case 2:
 				system("cls");
-				printf("탐색하겠습니다");
+				printf("추가하겠습니다");
 				Sleep(3000);
-				continue;
+				break;
 			case 4:
+				scanf("%s", &s);
+				system("cls");
+				printf("찾고 있습니다");
+				search(n1, s);
+				Sleep(3000);
+				break;
+			case 5:
 				system("cls");
 				printf("\npostorder : ");
 				postorder(n1);
 				Sleep(3000);
-				continue;
+				break;
 		}
 	} while(a != 0);
-	getchar();
+	return 0;
 }
