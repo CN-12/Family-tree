@@ -32,7 +32,6 @@ int main(){
    linkedList_h * L;
    listNode * p;
    L = createLinkedList_h();
-   
    int a;
    int test = 0;
    int last = 0; 
@@ -54,11 +53,11 @@ int main(){
 		   	insertFirstNode(L, day, money, work);
 		   }
 		   test = 1;
-		   insertMiddleNode(L, day, money, work);
+		   insertLastNode(L, day, money, work);
 		case 2:
 			
 		case 3:
-			printf("원하는 날짜에 기록을 확인하시오.")
+			printf("원하는 날짜에 기록을 확인하시오.");
 			scanf("%s", day);
 			searchNode("%s", &day);
 		case 4:
@@ -126,11 +125,13 @@ void insertMiddleNode( linkedList_h *L, listNode *pre, char *x){
       pre -> link = newNode;
    }
 }
-void insertLastNode( linkedList_h *L, char *x){
+void insertLastNode( linkedList_h *L, char x[], int size, char y[]){
    listNode* newNode;
    listNode* temp;
    newNode = (listNode*)malloc(sizeof(listNode));
    strcpy(newNode -> data, x);
+   strcpy(newNode -> day, y);
+   strcpy(newNode -> moeny, size);
    newNode -> link = NULL;
    if(L -> head == NULL) {
       L -> head = newNode;
